@@ -70,9 +70,12 @@ for _ in range(5):
     # bs4 magic
     articles = soup.find_all('article', {'data-testid':"tweet"})
     for article in articles:
-        text_div = article.find('div', {'data-testid':'tweetText'})
-        text = text_div.find('span', class_="css-1qaijid r-bcqeeo r-qvutc0 r-poiln3").get_text()
-        tweet_text_content.append(text)
+        try:
+            text_div = article.find('div', {'data-testid':'tweetText'})
+            text = text_div.find('span', class_="css-1qaijid r-bcqeeo r-qvutc0 r-poiln3").get_text()
+            tweet_text_content.append(text)
+        except:
+            pass
 
 
 output = query({
