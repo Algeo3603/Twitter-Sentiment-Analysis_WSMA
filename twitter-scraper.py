@@ -32,17 +32,19 @@ driver.get('https://twitter.com/i/flow/login')
 
 
 # enter username
+TWITTER_USERNAME = os.getenv('TWITTER_USERNAME')
 time.sleep(5)
 input_field = driver.find_element(By.CSS_SELECTOR, ".r-30o5oe.r-1dz5y72")
-input_field.send_keys("Algeo_testing")
+input_field.send_keys(TWITTER_USERNAME)
 next_button = driver.find_element(By.XPATH, "//div[@role='button'][contains(.,'Next')]")
 next_button.click()
 time.sleep(3)
 
 
 # enter password
+TWITTER_PASSWORD = os.getenv('TWITTER_PASSWORD')
 password_field = driver.find_element(By.XPATH, "//input[@name='password']")
-password_field.send_keys('Algeo-testing123')
+password_field.send_keys(TWITTER_PASSWORD)
 login_button = driver.find_element(By.XPATH, "//div[@role='button'][contains(.,'Log in')]")
 login_button.click()
 time.sleep(5)
